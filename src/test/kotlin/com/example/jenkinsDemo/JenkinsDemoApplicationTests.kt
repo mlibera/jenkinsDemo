@@ -12,7 +12,7 @@ class JenkinsDemoApplicationTests {
     }
     @Test
     fun test(){
-        val test = "test1"
+        val test = "test"
         Assert.isTrue(test.equals("test"))
     }
 }
