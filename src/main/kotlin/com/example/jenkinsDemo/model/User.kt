@@ -1,20 +1,19 @@
 package com.example.jenkinsDemo.model
 
-import lombok.Getter
-import lombok.Setter
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-import javax.persistence.Table
+import io.swagger.v3.oas.annotations.media.Schema
+import jakarta.persistence.*
+import lombok.Builder
+
 
 @Entity
-@Table(name = "User")
-@Getter
-@Setter
-data class User(@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-                var id: Long,
-                val name: String,
-                val email: String,
-                val password: String){
-}
+@Builder
+@Table(name = "users")
+@Schema(description = "Model for a User")
+data class User(
+    @field:Schema(description = "id for a User", example = "1", type = "Long", minimum = "1") @Id @GeneratedValue(
+        strategy = GenerationType.IDENTITY
+    ) val id: Long,
+    @field:Schema(description = "username which user declare", example = "Mario", type = "String") var name: String,
+    var email: String,
+    var password: String
+) {}
